@@ -1,0 +1,1 @@
+select COALESCE (sum(ds.countIds),0) as SumDupes from ( select ids,count(ids) as countIds from public."Persons_stage" group by ids having count(ids)>1) as ds;
